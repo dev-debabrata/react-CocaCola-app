@@ -3,8 +3,34 @@ import Cocacola1 from "../assets/cocacola1.png";
 import Cocacola2 from "../assets/cocacola2.png";
 import Cocacola3 from "../assets/cocacola3.png";
 import Navbar from "./Navbar";
-import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
+
+const slideRight = (delay) => {
+  return {
+    hidden: {
+      opacity: 0,
+      x: 100,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        delay: delay,
+        ease: easeInOut,
+      },
+    },
+    exit: {
+      opacity: 0,
+      x: -50,
+      transition: {
+        duration: 0.2,
+        ease: easeInOut,
+      },
+    },
+  };
+};
 
 const MotionDiv = motion.div;
 
@@ -60,27 +86,66 @@ const Hero = () => {
           {/* Data inof */}
           <div className="flex flex-col justify-center  text-white py-14 md:py-0 xl:max-w-[500px] order-2 md:order-1">
             <div>
-              <h1 className="text-3xl lg:text-6xl xl:text-7xl font-bold font-meri text-shadow">
-                {activeData.title}
-              </h1>
-              <p className="text-sm leading-loose text-white/80">
-                {activeData.subtitle}
-              </p>
-              <button className="px-4 py-2 text-red-700 bg-white inline-block font-normal rounded-sm my-5">
-                Order Now
-              </button>
+              <AnimatePresence mode="wait">
+                <motion.h1
+                  key={activeData.id}
+                  variants={slideRight(0.2)}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="text-3xl lg:text-6xl xl:text-7xl font-bold font-meri text-shadow"
+                >
+                  {activeData.title}
+                </motion.h1>
+              </AnimatePresence>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={activeData.id}
+                  variants={slideRight(0.4)}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="text-sm leading-loose text-white/80"
+                >
+                  {activeData.subtitle}
+                </motion.p>
+              </AnimatePresence>
+
+              <AnimatePresence mode="wait">
+                <motion.button
+                  key={activeData.id}
+                  variants={slideRight(0.6)}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="px-4 py-2 text-red-700 bg-white inline-block font-normal rounded-sm my-5"
+                >
+                  Order Now
+                </motion.button>
+              </AnimatePresence>
+
               {/* List separator */}
-              <div className="flex items-center justify-center md:justify-start gap-4 !md:mt-24 !mb-10">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+                className="flex items-center justify-center md:justify-start gap-4 !md:mt-24 !mb-10"
+              >
                 <div className="w-20 h-[1px] bg-white"></div>
                 <p>TOP RECOMMENDATION</p>
                 <div className="w-20 h-[1px] bg-white"></div>
-              </div>
+              </motion.div>
               {/* Image switcher */}
-              <div className="grid grid-cols-3 gap-10">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+                className="grid grid-cols-3 gap-10"
+              >
                 {HeroData.map((data) => {
                   return (
-                    <div>
-                      <div className="cursor-pointer space-y-3 hover:scale-105 transition-all duration-200">
+                    <div onClick={() => handleActiveData(data)}>
+                      <div className="cursor-pointer space-y-3 hover:scale-105 transition-all">
                         <div className=" flex justify-center">
                           <img
                             src={data.image}
@@ -102,7 +167,7 @@ const Hero = () => {
                     </div>
                   );
                 })}
-              </div>
+              </motion.div>
             </div>
           </div>
           {/* Hero image */}
@@ -112,7 +177,7 @@ const Hero = () => {
               alt=""
               className=" w-[150px] md:w-[200px] xl:w-[350px] drop-shadow-img relative z-10"
             />
-            <div className="text-white/5 text-[300px] font-pop font-extrabold absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div className="text-white/5 text-[300px] font-pop font-extrabold absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
               {activeData.modal}
             </div>
           </div>
