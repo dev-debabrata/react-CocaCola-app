@@ -82,7 +82,7 @@ const Hero = () => {
       >
         {/* Navbar component */}
         <Navbar />
-        <div className="container grid grid-cols-1 md:grid-cols-2 min-h-max">
+        <div className="container grid grid-cols-1 md:grid-cols-2 max-h-[605px]">
           {/* Data inof */}
           <div className="flex flex-col justify-center  text-white py-14 md:py-0 xl:max-w-[500px] order-2 md:order-1">
             <div>
@@ -150,11 +150,10 @@ const Hero = () => {
                           <img
                             src={data.image}
                             alt=""
-                            className={`w-[80px] drop-shadow-img ${
-                              activeData.image === data.image
-                                ? " opacity-100 scale-110"
-                                : " opacity-50"
-                            }`}
+                            className={`w-[80px] drop-shadow-img ${activeData.image === data.image
+                              ? " opacity-100 scale-110"
+                              : " opacity-50"
+                              }`}
                           />
                         </div>
                         <div className="text-center !mt-6 space-y-1">
@@ -177,7 +176,7 @@ const Hero = () => {
               alt=""
               className=" w-[150px] md:w-[200px] xl:w-[350px] drop-shadow-img relative z-10"
             />
-            <div className="text-white/5 text-[300px] font-pop font-extrabold absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+            <div className="text-white/5 text-[300px] font-pop font-extrabold absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 overflow-hidden max-w-[850px]">
               {activeData.modal}
             </div>
           </div>
