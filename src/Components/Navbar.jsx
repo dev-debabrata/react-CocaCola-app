@@ -1,7 +1,8 @@
 import React from 'react'
 import Logo from "../assets/Logo.png"
-import { MdMenu } from "react-icons/md";
+import { MdMenu, MdOutlineAddToDrive } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const NavbarMenu = [
     {
@@ -34,7 +35,11 @@ const NavbarMenu = [
 const Navbar = () => {
     return (
         <div className=" bg-cola text-white py-3 md:py-8">
-            <div className="container flex justify-between items-center">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5, }}
+                className="container flex justify-between items-center">
                 {/* Logo section */}
                 <div>
                     <img src={Logo} alt='' className="max-w-[150px] " />
@@ -56,7 +61,7 @@ const Navbar = () => {
                 <div className="md:hidden">
                     <MdMenu className="text-4xl" />
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

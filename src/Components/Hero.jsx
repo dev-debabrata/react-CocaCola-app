@@ -41,7 +41,7 @@ const HeroData = [
     title: "Coca Cola",
     subtitle:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    price: "$40",
+    price: "$100",
     modal: "Cola",
     bgColor: "#ac1a00",
   },
@@ -75,7 +75,7 @@ const Hero = () => {
   };
   return (
     <>
-      <MotionDiv
+      <motion.div
         initial={{ backgroundColor: activeData.bgColor }}
         animate={{ backgroundColor: activeData.bgColor }}
         transition={{ duration: 0.8 }}
@@ -84,7 +84,7 @@ const Hero = () => {
         <Navbar />
         <div className="container grid grid-cols-1 md:grid-cols-2 max-h-[605px]">
           {/* Data inof */}
-          <div className="flex flex-col justify-center  text-white py-14 md:py-0 xl:max-w-[500px] order-2 md:order-1">
+          <div className="flex flex-col justify-center  text-white py-14 md:py-0 xl:max-w-[500px] order-2 md:order-1 relative z-40">
             <div>
               <AnimatePresence mode="wait">
                 <motion.h1
@@ -97,6 +97,7 @@ const Hero = () => {
                 >
                   {activeData.title}
                 </motion.h1>
+
               </AnimatePresence>
               <AnimatePresence mode="wait">
                 <motion.p
@@ -171,14 +172,40 @@ const Hero = () => {
           </div>
           {/* Hero image */}
           <div className="flex flex-col justify-end items-center relative order-1 md:order-2">
-            <img
-              src={activeData.image}
-              alt=""
-              className=" w-[150px] md:w-[200px] xl:w-[350px] drop-shadow-img relative z-10"
-            />
-            <div className="text-white/5 text-[300px] font-pop font-extrabold absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 overflow-hidden max-w-[850px]">
-              {activeData.modal}
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeData.id}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0, ease: "easeInOut" }}
+                exit={{
+                  opacity: 0,
+                  x: -100,
+                  transition: {
+                    duration: 0.4,
+                  },
+                }}
+                src={activeData.image}
+                alt=""
+                className=" w-[150px] md:w-[200px] xl:w-[350px] drop-shadow-img relative z-10"
+              />
+            </AnimatePresence>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeData.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.0, ease: "easeInOut" }}
+                exit={{
+                  opacity: 0,
+                  transition: {
+                    duration: 0.4,
+                  },
+                }}
+                className="text-white/5 text-[300px] font-pop font-extrabold absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 overflow-hidden max-w-[850px]">
+                {activeData.modal}
+              </motion.div>
+            </AnimatePresence>
           </div>
           {/* Whatsapp icon */}
           <div className="text-3xl text-white fixed bottom-10 right-10 hover:rotate-[360deg] duration-500 z-[99999] mix-blend-difference">
@@ -187,7 +214,7 @@ const Hero = () => {
             </a>
           </div>
         </div>
-      </MotionDiv>
+      </motion.div>
     </>
   );
 };
