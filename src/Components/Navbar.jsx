@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from "../assets/Logo.png"
-import { MdMenu, MdOutlineAddToDrive } from "react-icons/md";
+import { MdMenu } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import { motion } from "framer-motion";
 
