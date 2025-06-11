@@ -49,11 +49,24 @@ const Products = () => {
   return (
     <div className=" bg-gray-100 py-8">
       <div className=" container py-14">
-        <h1 className="text-3xl font-bold text-center pb-10">Our Products</h1>
+        <motion.h1
+          variants={fadeUp(0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          className="text-3xl font-bold text-center pb-10"
+        >
+          Our Products
+        </motion.h1>
         {/* Card section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {ProductsData.map((item) => (
-            <motion.div className="flex flex-col items-center justify-center p-5 max-w-[300px] mx-auto shadow-lg rounded-xl bg-white">
+            <motion.div
+              variants={fadeUp(item.delay)}
+              key={item.id}
+              initial="hidden"
+              whileInView={"show"}
+              className="flex flex-col items-center justify-center p-5 max-w-[300px] mx-auto shadow-lg rounded-xl bg-white"
+            >
               <img
                 src={item.image}
                 alt=""

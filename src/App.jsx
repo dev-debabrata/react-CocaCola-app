@@ -5,7 +5,7 @@ import Products from './Components/Products'
 
 const App = () => {
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-hidden">
       <Hero />
       <Products />
     </main>

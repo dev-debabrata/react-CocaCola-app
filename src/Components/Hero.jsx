@@ -119,7 +119,7 @@ const Hero = () => {
                   initial="hidden"
                   animate="show"
                   exit="exit"
-                  className="px-4 py-2 text-primary bg-white inline-block font-normal rounded-sm my-5 hover:bg-gray-900 hover:text-white duration-200"
+                  className="px-4 py-2 text-primary bg-white inline-block font-normal rounded-sm my-5 hover:bg-primary hover:text-white duration-200"
                 >
                   Order Now
                 </motion.button>
@@ -202,7 +202,7 @@ const Hero = () => {
                     duration: 0.4,
                   },
                 }}
-                className="text-white/5 text-[300px] font-pop font-extrabold absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
+                className="text-white/5 text-[300px] font-pop font-extrabold absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 ">
                 {activeData.modal}
               </motion.div>
             </AnimatePresence>
