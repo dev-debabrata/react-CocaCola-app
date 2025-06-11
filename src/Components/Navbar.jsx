@@ -42,7 +42,7 @@ const Navbar = () => {
                 className="container flex justify-between items-center">
                 {/* Logo section */}
                 <div>
-                    <img src={Logo} alt='' className="max-w-[150px] " />
+                    <img src={Logo} alt='' className="max-w-[115px] invert" />
                 </div>
                 {/* Menu section */}
                 <div className="hidden md:block">

@@ -4,7 +4,7 @@ import P2 from "../assets/cocacola2.png";
 import P3 from "../assets/cocacola3.png";
 import { motion } from "framer-motion";
 
-const fadeUp = (delay) => {
+export const fadeUp = (delay) => {
   return {
     hidden: {
       opacity: 0,
