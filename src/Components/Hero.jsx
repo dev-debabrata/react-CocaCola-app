@@ -75,17 +75,17 @@ const Hero = () => {
   };
   return (
     <>
-      <motion.div
+      <motion.section
         initial={{ backgroundColor: activeData.bgColor }}
         animate={{ backgroundColor: activeData.bgColor }}
         transition={{ duration: 0.8 }}
-      >
+        className=" bg-brandDark text-white">
         {/* Navbar component */}
         <Navbar />
-        <div className="container grid grid-cols-1 md:grid-cols-2 max-h-[605px]">
+        <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[605px]">
           {/* Data inof */}
-          <div className="flex flex-col justify-center  text-white py-14 md:py-0 xl:max-w-[500px] order-2 md:order-1 relative z-40">
-            <div>
+          <div className="flex flex-col justify-center py-14 md:py-0 xl:max-w-[500px] order-2 md:order-1">
+            <div className="space-y-5 text-center md:text-left">
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={activeData.id}
@@ -129,7 +129,7 @@ const Hero = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
                 className="flex items-center justify-center md:justify-start gap-4 !md:mt-24 !mb-10"
               >
                 <div className="w-20 h-[1px] bg-white"></div>
@@ -140,12 +140,14 @@ const Hero = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
                 className="grid grid-cols-3 gap-10"
               >
                 {HeroData.map((data) => {
                   return (
-                    <div onClick={() => handleActiveData(data)}>
+                    <div
+                      key={data.id}
+                      onClick={() => handleActiveData(data)}>
                       <div className="cursor-pointer space-y-3 hover:scale-105 transition-all">
                         <div className=" flex justify-center">
                           <img
@@ -202,7 +204,7 @@ const Hero = () => {
                     duration: 0.4,
                   },
                 }}
-                className="text-white/5 text-[300px] font-pop font-extrabold absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 ">
+                className="text-white/5 text-[300px] font-pop font-extrabold absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 ">
                 {activeData.modal}
               </motion.div>
             </AnimatePresence>
@@ -214,7 +216,7 @@ const Hero = () => {
             </a>
           </div>
         </div>
-      </motion.div>
+      </motion.section>
     </>
   );
 };

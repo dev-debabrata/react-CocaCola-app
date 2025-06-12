@@ -30,7 +30,7 @@ const FAQ = () => {
         setActive(index === active ? null : index);
     };
     return (
-        <div className=" max-w-2xl mx-auto mt-20 mb-28 py-4">
+        <div className="max-w-2xl mx-auto mt-20 mb-28 py-4">
             <h1 className="text-3xl font-bold text-center pb-8">
                 Frequently Asked Questions
             </h1>
@@ -41,13 +41,13 @@ const FAQ = () => {
                     className="mb-4 py-4 border-b border-gray-300">
                     <div
                         onClick={() => handleClick(index)}
-                        className="flex justify-between items-center cursor-pointer py-4">
+                        className="flex justify-between items-center cursor-pointer py-4 mx-3">
                         <h3 className="text-xl font-semibold text-gray-800">
                             {item.question}
                         </h3>
                         <span>{active === index ? "-" : "+"}</span>
                     </div>
-                    {active === index && <p className="text-gray-600">{item.answer}</p>}
+                    {active === index && <p className="text-gray-600 mx-3">{item.answer}</p>}
                 </div>
             ))}
         </div>

@@ -1,8 +1,9 @@
 import React from 'react'
 import Logo from "../assets/Logo.png"
-import { MdMenu } from "react-icons/md";
+import { MdClose, MdMenu } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useState } from 'react'
 
 const NavbarMenu = [
     {
@@ -33,8 +34,14 @@ const NavbarMenu = [
 ];
 
 const Navbar = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <div className=" bg-cola text-white py-3 md:py-8">
+        <div className=" bg-cola text-white py-3 md:py-8 relative">
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -44,11 +51,11 @@ const Navbar = () => {
                 <div>
                     <img src={Logo} alt='' className="max-w-[115px] invert" />
                 </div>
-                {/* Menu section */}
+                {/* Destop Menu section */}
                 <div className="hidden md:block">
                     <ul className="flex items-center gap-4 relative z-40">
                         {NavbarMenu.map((item) => (
-                            <li>
+                            <li key={item.id}>
                                 <a href={item.link} className="inline-block text-base font-semibold py-2 px-4 uppercase">{item.title}</a>
                             </li>
                         ))}
@@ -57,13 +64,26 @@ const Navbar = () => {
                         </button>
                     </ul>
                 </div>
-                {/* Hamburger Icon */}
-                <div className="md:hidden">
-                    <MdMenu className="text-4xl" />
+                {/* Mobile Menu Icon */}
+                <div className="md:hidden z-50" onClick={toggleMenu}>
+                    {isOpen ? <MdClose className="text-4xl cursor-pointer mr-3" /> : <MdMenu className="text-4xl cursor-pointer mr-3" />}
                 </div>
+                {isOpen && (
+                    <div className="md:hidden absolute top-full left-0 w-full bg-cola z-40">
+                        <ul className="flex flex-col items-start gap-4 pl-8">
+                            {NavbarMenu.map((item) => (
+                                <li key={item.id}>
+                                    <a href={item.link} className="inline-block text-base font-semibold py-2 px-4 uppercase">{item.title}</a>
+                                </li>
+                            ))}
+
+                        </ul>
+                    </div>
+                )}
             </motion.div>
         </div>
     )
 }
 
 export default Navbar
+

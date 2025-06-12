@@ -85,7 +85,7 @@ const Footer = () => {
                 </div>
                 {/* Copyright section */}
                 <p className="text-center mt-8 border-t-2 border-white/40 pt-8">
-                    Copyright &copy; 2025. All Rights Reserved
+                    Copyright &copy; 2025. All Rights Reserved - Debabrata
                 </p>
             </div>
         </footer>

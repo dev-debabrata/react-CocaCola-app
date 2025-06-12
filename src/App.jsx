@@ -11,7 +11,7 @@ import Footer from './Components/Footer'
 
 const App = () => {
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-x-hidden">
       <Hero />
       <Products />
       <Banner />
