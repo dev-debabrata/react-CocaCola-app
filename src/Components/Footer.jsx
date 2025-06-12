@@ -71,11 +71,11 @@ const Footer = () => {
                         }}
                         className="space-y-6">
                         <h1 className="text-3xl font-bold">KEEP IN TOUCH</h1>
-                        <div className="flex items-center gap-3 cursor-pointer">
-                            <FaFacebook className="text-3xl hover:scale-105 duration-300" />
-                            <FaTwitter className="text-3xl hover:scale-105 duration-300" />
-                            <FaYoutube className="text-3xl hover:scale-105 duration-300" />
-                            <FaInstagram className="text-3xl hover:scale-105 duration-300" />
+                        <div className="flex items-center gap-3">
+                            <FaFacebook className="text-3xl cursor-pointer hover:scale-105 duration-300" />
+                            <FaTwitter className="text-3xl cursor-pointer hover:scale-105 duration-300" />
+                            <FaYoutube className="text-3xl cursor-pointer hover:scale-105 duration-300" />
+                            <FaInstagram className="text-3xl cursor-pointer hover:scale-105 duration-300" />
                         </div>
                         <div className="space-y-2">
                             <p>Payment Methods</p>
