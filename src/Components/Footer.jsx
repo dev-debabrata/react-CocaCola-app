@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from "../assets/Logo.png"
 import CardsImg from "../assets/credit-cards.webp";
-import { FaFacebook, FaGoogle, FaInstagram, FaPhone, FaTelegram } from 'react-icons/fa'
+import { FaFacebook, FaGoogle, FaInstagram, FaLinkedin, FaPhone, FaTelegram, FaTwitter } from 'react-icons/fa'
 import { FaMapLocation } from 'react-icons/fa6'
 import { motion } from "framer-motion";
 
@@ -72,6 +72,8 @@ const Footer = () => {
                         className="space-y-6">
                         <h1 className="text-3xl font-bold">Follow Us</h1>
                         <div className="flex items-center gap-3">
+                            <FaTwitter className="text-3xl hover:scale-105 duration-300" />
+                            <FaLinkedin className="text-3xl hover:scale-105 duration-300" />
                             <FaFacebook className="text-3xl hover:scale-105 duration-300" />
                             <FaInstagram className="text-3xl hover:scale-105 duration-300" />
                             <FaTelegram className="text-3xl hover:scale-105 duration-300" />
