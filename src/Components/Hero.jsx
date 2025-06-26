@@ -79,7 +79,7 @@ const Hero = () => {
         initial={{ backgroundColor: activeData.bgColor }}
         animate={{ backgroundColor: activeData.bgColor }}
         transition={{ duration: 0.8 }}
-        className=" bg-brandDark text-white">
+        className="text-white">
         {/* Navbar component */}
         <Navbar />
         <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[605px]">

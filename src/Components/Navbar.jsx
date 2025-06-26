@@ -66,7 +66,7 @@ const Navbar = () => {
                 </div>
                 {/* Mobile Menu Icon */}
                 <div className="md:hidden z-50" onClick={toggleMenu}>
-                    {isOpen ? <MdClose className="text-4xl cursor-pointer mr-3" /> : <MdMenu className="text-4xl cursor-pointer mr-3" />}
+                    {isOpen ? (<MdClose className="text-4xl cursor-pointer mr-3" />) : (<MdMenu className="text-4xl cursor-pointer mr-3" />)}
                 </div>
                 {isOpen && (
                     <div className="md:hidden absolute top-full left-0 w-full bg-cola z-40">
